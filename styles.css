@@ -7,8 +7,13 @@
 html {
   scroll-behavior: smooth;
 }
+#home {
+  scroll-margin-top: 100px; /* adjust based on your header height */
+  padding-top: 100px; /* Adjust to header height */
+  margin-top: -100px;
+}
 
-  body {
+  body { 
     font-family: 'Poppins', sans-serif;
     background-color: #f0f4f5;
     color: #2c2c2c;
@@ -33,12 +38,43 @@ html {
   margin-top: -15px; /* Move it up to stay visually centered */
   margin-bottom: -15px; /* Prevent it from pushing the navbar height */
 }
+/* Initial hidden state */
+.hero-content h2,
+.hero-content p,
+.hero-content .btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards; /* Keep final state after animation */
+}
+
+/* Animate fade in and slide up */
+.hero-content h2 {
+  animation: fadeSlideIn 0.8s ease-out 0.2s forwards;
+}
+
+.hero-content p {
+  animation: fadeSlideIn 0.8s ease-out 0.5s forwards;
+}
+
+.hero-content .btn {
+  animation: fadeSlideIn 0.8s ease-out 0.8s forwards;
+}
+
+/* Keyframes for the animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 #backToTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  display: none; /* hidden by default */
+  display: block;          /* keep display block */
+  opacity: 0;
+  visibility: hidden;
   z-index: 100;
   font-size: 18px;
   font-weight: 600;
@@ -53,8 +89,15 @@ html {
     background-color 0.3s ease,
     color 0.3s ease,
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    opacity 0.5s ease,
+    visibility 0.5s ease;
   animation: pulse 2.5s infinite;
+}
+
+#backToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 #backToTopBtn:hover {
@@ -64,7 +107,6 @@ html {
   transform: scale(1.1);
 }
 
-/* Pulse animation to gently grab attention */
 @keyframes pulse {
   0%, 100% {
     box-shadow: 0 0 8px rgba(0, 91, 92, 0.4);

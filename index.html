@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
-<body>
+<body> 
   <!-- Header with Navigation -->
   <header class="header">
     <div class="container nav-container">
@@ -232,24 +232,29 @@
 
   <!-- JS -->
   <script>
-    window.onscroll = function() {
+    window.addEventListener("scroll", () => {
   const btn = document.getElementById("backToTopBtn");
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-};
+  const homeSection = document.getElementById("home");
+  if (!homeSection) return;
 
-document.getElementById("backToTopBtn").addEventListener("click", function() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}); 
-document.getElementById("backToTopBtn").addEventListener("click", function() {
-  const homeSection = document.querySelector("#home");
-  if (homeSection) {
-    homeSection.scrollIntoView({ behavior: 'smooth' });
+  const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollY > homeBottom) {
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
   }
 });
+
+document.getElementById("backToTopBtn").addEventListener("click", () => {
+  const homeSection = document.getElementById("home");
+  if (homeSection) {
+    homeSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+
 
 
 
@@ -511,6 +516,8 @@ document.getElementById("backToTopBtn").addEventListener("click", function() {
     });
   </script>
 
+  
+
   <link rel="stylesheet" href="script.js">
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -557,7 +564,20 @@ document.getElementById("backToTopBtn").addEventListener("click", function() {
   </div>
    
 
-  <a href="#home" class="back-to-top-btn" style="font-family: 'Poppins', sans-serif;"><button id="backToTopBtn" title="Go to top" style="font-family: 'Poppins', sans-serif; font-weight: bold;">↑</button> </a>
+  <a href="#home" class="back-to-top-btn" style="font-family: 'Poppins', sans-serif;">
+  <button id="backToTopBtn" title="Go to top" 
+          style="font-family: 'Poppins', sans-serif; font-weight: bold; padding: 0; width: 60px; height: 60px; background: white; border: 2px solid #005b5c; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 8px rgba(0,91,92,0.2);">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#005b5c" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;">
+      <path d="M7 14l5-5 5 5H7z"/>
+    </svg>
+  </button>
+</a>
+
+
+
+
+
+
 
 </body>
 
