@@ -818,3 +818,31 @@ section p {
   letter-spacing: 0.02em;
   text-align: left;       /* Keep them left-aligned for readability */
 }
+/* Base layout: icon left, text right */
+.service-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.service-icon-large {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+/* On small screens, stack icon on top and center text */
+@media (max-width: 768px) {
+  .service-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .service-icon-large {
+    margin-bottom: 0.5rem;
+  }
+
+  .service-content {
+    max-width: 100%;
+  }
+}
