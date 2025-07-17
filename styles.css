@@ -695,3 +695,84 @@ html {
         padding: 0.5rem 1rem;
     }
 }
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  min-width: 250px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.service-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.service-icon-large {
+  font-size: 2.5rem;
+  flex: 0 0 60px;
+  color: #B7AB8D; /* match your theme */
+  margin-top: 0.5rem;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #3B3B3A; /* your new text color */
+}
+
+.service-content p {
+  margin-bottom: 1rem;
+  color: #3B3B3A;
+}
+
+.service-content ul {
+  padding-left: 1.5rem;
+  color: #3B3B3A;
+}
