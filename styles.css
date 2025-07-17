@@ -776,3 +776,45 @@ html {
   padding-left: 1.5rem;
   color: #3B3B3A;
 }
+.section, .hero, .contact, .gallery, #service-area, #testimonials {
+  text-align: center;
+}
+
+.about-text, .service-content {
+  text-align: center;
+}
+
+.service-row ul {
+  display: inline-block;
+  text-align: left;
+}
+/* Emphasize all section texts */
+section {
+  font-weight: 600;        /* Semi-bold */
+  font-size: 1.1rem;       /* Slightly bigger font */
+  letter-spacing: 0.03em;  /* Small letter spacing */
+  line-height: 1.6;        /* Better readability */
+  color: #222;             /* Darker text color for contrast */
+  text-shadow: 0 0 1px rgba(0,0,0,0.1); /* subtle text shadow */
+}
+
+/* Headings within sections even more emphasized */
+section h2, section h3, section h4 {
+  font-weight: 700;        /* Bold headings */
+  letter-spacing: 0.05em;
+  color: #005b5c;          /* Your brand color or darker tone */
+}
+
+/* Keep paragraphs nicely spaced and emphasized */
+section p {
+  margin-bottom: 1.25rem;
+}
+
+/* Lists in service sections should remain left aligned but emphasized */
+.service-row ul {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  letter-spacing: 0.02em;
+  text-align: left;       /* Keep them left-aligned for readability */
+}
