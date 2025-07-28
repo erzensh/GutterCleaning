@@ -68,6 +68,17 @@ html {
   }
 }
 
+.btn {
+  background-color: #1c5986;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #14446a;
+}
+
+
 #backToTopBtn {
   position: fixed;
   bottom: 30px;
@@ -78,7 +89,7 @@ html {
   z-index: 100;
   font-size: 18px;
   font-weight: 600;
-  border: 2px solid #005b5c;
+  border: 2px solid #1c5986;
   background-color: white;
   color: #005b5c;
   cursor: pointer;
@@ -101,18 +112,18 @@ html {
 }
 
 #backToTopBtn:hover {
-  background-color: #ffc107;
-  color: #005b5c;
-  box-shadow: 0 6px 12px rgba(255, 193, 7, 0.6);
+  background-color: #1c5986;
+  color: #edf4fa;
+  box-shadow: 0 6px 12px rgba(28, 89, 134, 1);
   transform: scale(1.1);
 }
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(0, 91, 92, 0.4);
+    box-shadow: 0 0 8px rgba(28, 89, 134, 1);
   }
   50% {
-    box-shadow: 0 0 16px rgba(255, 193, 7, 0.8);
+    box-shadow: 0 0 16px rgba(20, 68, 106, 1);
   }
 }
 
@@ -127,7 +138,7 @@ html {
 
   /* ===== Header & Navigation ===== */
   .header {
-    background-color: #005b5c;
+    background-color: #1c5986;
     color: white;
     padding: 1rem 0;
     position: sticky;
@@ -277,7 +288,7 @@ html {
     top: 80px;
     left: 0;
     width: 100%;
-    background-color: #005b5c;
+    background-color: #1c5986;
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
@@ -337,7 +348,7 @@ html {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #ffc107;
+    background-color: #edf4fa;
     transition: width 0.3s ease;
   }
 
@@ -390,8 +401,8 @@ html {
 
   .btn,
   .contact button {
-    background-color: #ffc107;
-    color: #005b5c;
+    background-color: #edf4fa;
+    color: #1c5986;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     border: none;
@@ -402,9 +413,10 @@ html {
 
   .btn:hover,
   .contact button:hover {
-    background-color: #e6b800;
+    background-color: #14446a;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #edf4fa;
   }
 
   /* ===== About Section ===== */
@@ -472,7 +484,7 @@ html {
     height: 8px;
   }
   .gallery-scroll::-webkit-scrollbar-thumb {
-    background-color: #b7ab8d;
+    background-color: #14446a;
     border-radius: 4px;
   }
   .gallery-item {
@@ -638,7 +650,7 @@ html {
   
   /* ===== Contact Section ===== */
   .contact {
-    background: linear-gradient(to right, #005b5c, #007f80);
+    background: #1c5986;
     color: white;
   }
 
@@ -671,8 +683,8 @@ html {
 
   /* ===== Footer ===== */
   .footer {
-    background-color: #003637;
-    color: white;
+    background-color: #edf4fa;
+    color: #1c5986;
     text-align: center;
     padding: 1.5rem;
     font-size: 0.9rem;
@@ -802,7 +814,7 @@ section {
 section h2, section h3, section h4 {
   font-weight: 700;        /* Bold headings */
   letter-spacing: 0.05em;
-  color: #005b5c;          /* Your brand color or darker tone */
+  color: #1c5986;          /* Your brand color or darker tone */
 }
 
 /* Keep paragraphs nicely spaced and emphasized */
