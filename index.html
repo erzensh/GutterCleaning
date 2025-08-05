@@ -91,6 +91,13 @@ Let’s protect your home together.
 </section>
 
 
+<!-- Before & After Image Slider -->
+<div class="slider-container" id="slider">
+  <img src="/img/istockphoto-1475121450-612x612.jpg" class="before-image" alt="Before" />
+  <img src="/img/istockphoto-485292592-612x612.jpg" class="after-image" alt="After" id="afterImg"/>
+  <div class="slider-handle" id="sliderHandle"></div>
+</div>
+
   <!-- Before & After Gallery Section -->
   <section id="work" class="gallery section">
     <div class="container">
@@ -523,32 +530,45 @@ document.getElementById("backToTopBtn").addEventListener("click", () => {
 
     // Update underline based on scroll position
     window.addEventListener('scroll', throttle(() => {
-      if (userClicked) return;
+  if (userClicked) return;
 
-      let closestSection = null;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      document.querySelectorAll('section[id]').forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= -100 && rect.top < closestDistance) {
-          closestDistance = rect.top;
-          closestSection = section;
-        }
-      });
-
-      if (closestSection) {
-        const id = closestSection.getAttribute('id');
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${id}`) {
-            if (!link.classList.contains('active')) {
-              navLinks.forEach(l => l.classList.remove('active'));
-              link.classList.add('active');
-              updateUnderline(link);
-            }
-          }
-        });
+  // If at top, highlight home
+  if (window.scrollY < 100) {
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#home') {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        updateUnderline(link);
       }
-    }, 100));
+    });
+    return;
+  }
+
+  let closestSection = null;
+  let closestDistance = Number.POSITIVE_INFINITY;
+
+  document.querySelectorAll('section[id]').forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 150 && rect.top >= -300 && rect.top < closestDistance) {
+      closestDistance = rect.top;
+      closestSection = section;
+    }
+  });
+
+  if (closestSection) {
+    const id = closestSection.getAttribute('id');
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === `#${id}`) {
+        if (!link.classList.contains('active')) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          updateUnderline(link);
+        }
+      }
+    });
+  }
+}, 100));
+
 
     // Optional: Update underline on window resize
     window.addEventListener('resize', () => {
@@ -646,6 +666,32 @@ document.getElementById("backToTopBtn").addEventListener("click", () => {
       alert("Error sending message.");
     }
   });
+
+  const slider = document.getElementById('slider');
+  const afterImg = document.getElementById('afterImg');
+  const handle = document.getElementById('sliderHandle');
+
+  slider.addEventListener('mousemove', (e) => {
+    const rect = slider.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    x = Math.max(0, Math.min(x, rect.width));
+
+    const percent = (x / rect.width) * 100;
+    afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    handle.style.left = `${percent}%`;
+  });
+
+  slider.addEventListener('touchmove', (e) => {
+    const rect = slider.getBoundingClientRect();
+    let x = e.touches[0].clientX - rect.left;
+    x = Math.max(0, Math.min(x, rect.width));
+
+    const percent = (x / rect.width) * 100;
+    afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    handle.style.left = `${percent}%`;
+  });
+
+
 </script>
 
 
