@@ -997,3 +997,65 @@ ul {
       border-radius: 50%;
       mix-blend-mode: difference;
     }
+
+.before-after {
+  padding: 60px 40px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.before-after .title {
+  font-size: 2.2rem;
+  margin-bottom: 40px; /* spacing between title & slider */
+  color: #333;
+  font-weight: 600;
+}
+
+/* Horizontal slider */
+.projects-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px; /* breathing space under slider */
+}
+
+.projects-slider::-webkit-scrollbar {
+  height: 8px; /* show horizontal scrollbar */
+}
+.projects-slider::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+/* Cards */
+.project-card {
+  flex: 0 0 calc(25% - 20px); /* show 4 at a time */
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-width: 260px; /* fallback for smaller screens */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
