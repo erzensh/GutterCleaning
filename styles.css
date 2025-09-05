@@ -32,7 +32,7 @@ html {
     border-radius: 8px;
   }
 .logo-img {
-  height: 80px; /* Make the logo bigger */
+  height: 90px; /* Make the logo bigger */
   object-fit: contain;
   display: block;
   margin-top: -15px; /* Move it up to stay visually centered */
@@ -68,6 +68,40 @@ html {
   }
 }
 
+/* Call Now styling */
+/* Desktop style */
+.call-now {
+  margin-left: 20px;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.call-now a {
+  color: #005b5c;
+  text-decoration: none;
+  font-weight: bold;   /* ✅ makes it bold */
+  transition: color 0.3s ease;
+}
+
+.call-now a:hover {
+  color: #0c4772;
+}
+
+/* Mobile style */
+@media (max-width: 768px) {
+  .call-now {
+    margin: 15px 0 0 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .call-now a {
+    color: #005b5c;
+    text-decoration: none;
+    font-weight: bold;   /* ✅ bold on mobile too */
+    transition: color 0.3s ease;
+  }
+}
 
 
 #backToTopBtn {
@@ -998,18 +1032,85 @@ ul {
       mix-blend-mode: difference;
     }
 
+    
+/* Before & After Section */
 .before-after {
-  padding: 60px 40px;
-  background: #f9f9f9;
+  padding: 60px 20px;
+  background: #fff;
   text-align: center;
 }
 
-.before-after .title {
+.before-after h2 {
   font-size: 2.2rem;
-  margin-bottom: 40px; /* spacing between title & slider */
-  color: #333;
-  font-weight: 600;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #2d2d2d;
 }
+
+/* Horizontal slider */
+.projects-slider {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+}
+
+.projects-slider::-webkit-scrollbar {
+  display: none; /* cleaner look */
+}
+
+/* Flip card */
+.project-card {
+  flex: 0 0 300px;          /* ~4 per row on desktop */
+  aspect-ratio: 1 / 1;      /* keep them square */
+  position: relative;
+  perspective: 1000px;
+  scroll-snap-align: start;
+}
+
+.project-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.project-card:hover .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front = image */
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.project-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ✅ ensures full image is visible */
+  display: block;
+}
+
+/* Back = description */
+.project-card-back {
+  background: #2d2d2d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transform: rotateY(180deg);
+}
+
 
 /* Horizontal slider */
 .projects-slider {
@@ -1030,27 +1131,29 @@ ul {
 }
 
 /* Cards */
+/* Cards */
 .project-card {
   flex: 0 0 calc(25% - 20px); /* show 4 at a time */
   scroll-snap-align: start;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 15px;
+  border-radius: 0;          /* removed border radius */
+  box-shadow: none;          /* removed shadow */
+  padding: 0;                /* optional: remove padding around image */
   text-align: center;
   transition: transform 0.3s ease;
-  min-width: 260px; /* fallback for smaller screens */
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
+  min-width: 260px;          /* fallback for smaller screens */
 }
 
 .project-card img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0;          /* remove image rounding */
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 0;          /* optional: remove space below image */
+}
+
+
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
 .project-card p {

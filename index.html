@@ -12,26 +12,34 @@
 
 <body> 
   <!-- Header with Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="#home">
-    <img src="/0-02-0a-5627e82b9d03df60ab19be445d70e7f45a488a683b04d4c9e3058e84f594f686_f6d8492fc23e6eaa-removebg-preview.png" alt="Gutter Shine UK Logo" class="logo-img" />
-  </a>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav class="nav" id="nav-menu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#work" class="nav-link">Our Work</a>
-        <a href="#service-area" class="nav-link">Service Area</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <span class="nav-underline"></span>
-      </nav>
+ <header class="header">
+  <div class="container nav-container">
+    <a href="#home">
+      <img src="/img/viber_image_2025-09-05_11-24-44-923-removebg-preview.png" 
+           alt="Gutter Shine UK Logo" class="logo-img" />
+    </a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </header>
+
+    <nav class="nav" id="nav-menu">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#work" class="nav-link">Our Work</a>
+      <a href="#service-area" class="nav-link">Service Area</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <div class="call-now">
+      <a href="tel:+447123456789" style="font-weight: bold;">📞 Call Now: +44 7123 456789</a>
+    </div>
+      <span class="nav-underline"></span>
+    </nav>
+
+  </div>
+</header>
+
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -98,33 +106,67 @@ Let’s protect your home together.
   <div class="slider-handle" id="sliderHandle"></div>
 </div> -->
 
-<!-- Before & After Gallery Section -->
 <section class="before-after">
   <h2>Before & After</h2>
-  <div class="projects-slider">
-    <div class="project-card">
-      <img src="img/istockphoto-1475121450-612x612.jpg" alt="Before and After - Project 1">
-      <p>Clogged Gutters – Filled with leaves and debris</p>
+  <div class="slider-wrapper">
+    <div class="projects-slider">
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="img/photo-output (1).jpeg" alt="Gutter cleaning before and after">
+          </div>
+          <div class="project-card-back">
+            <p>Clogged gutters fully cleaned — water now flows smoothly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="img/photo-output (2).jpeg" alt="Gutter cleaning before and after">
+          </div>
+          <div class="project-card-back">
+            <p>Clogged gutters fully cleaned — water now flows smoothly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="img/photo-output (3).jpeg" alt="Gutter cleaning before and after">
+          </div>
+          <div class="project-card-back">
+            <p>Clogged gutters fully cleaned — water now flows smoothly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="img/photo-output (4).jpeg" alt="Gutter cleaning before and after">
+          </div>
+          <div class="project-card-back">
+            <p>Clogged gutters fully cleaned — water now flows smoothly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="img/photo-output.jpeg" alt="Gutter cleaning before and after">
+          </div>
+          <div class="project-card-back">
+            <p>Clogged gutters fully cleaned — water now flows smoothly.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="project-card">
-      <img src="img/istockphoto-485292592-612x612.jpg" alt="Before and After - Project 2">
-      <p>After Cleaning – Gutters clear and flowing smoothly</p>
-    </div>
-    <div class="project-card">
-      <img src="img/istockphoto-502054247-612x612.jpg" alt="Before and After - Project 3">
-      <p>Gutter Maintenance – Preventing water damage</p>
-    </div>
-    <div class="project-card">
-      <img src="img/istockphoto-502054247-612x612.jpg" alt="Before and After - Project 4">
-      <p>Downspouts – Unblocked for proper drainage</p>
-    </div>
-    <div class="project-card">
-      <img src="img/istockphoto-502054247-612x612.jpg" alt="Before and After - Project 5">
-      <p>Roof & Gutter Combo – Clean and protected from leaks</p>
+    <div style="text-align: center; margin-top: 1rem;">
+      <button id="prevPic" class="btn">← Prev</button>
+      <button id="nextPic" class="btn">Next →</button>
     </div>
   </div>
 </section>
-
 
 
 
@@ -440,6 +482,26 @@ document.getElementById("backToTopBtn").addEventListener("click", () => {
       updateCarousel();
     });
 
+    document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.projects-slider');
+  const prevBtn = document.getElementById('prevPic');
+  const nextBtn = document.getElementById('nextPic');
+
+  // Width of one card + gap
+  const card = slider.querySelector('.project-card');
+  const gap = parseInt(getComputedStyle(slider).gap) || 20; // fallback if gap not defined
+  const scrollAmount = card.offsetWidth + gap;
+
+  prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+});
+
+
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('.nav');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -695,7 +757,7 @@ document.getElementById("backToTopBtn").addEventListener("click", () => {
     handle.style.left = `${percent}%`;
   });
 
-
+  
 </script>
 
 
