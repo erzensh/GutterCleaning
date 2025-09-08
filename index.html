@@ -35,7 +35,7 @@
   </div>
 
   <div class="contact-info">
-    <a href="tel:+447123456789">Call Now: 07848 254198</a>
+    <a href="tel:07848 254198">Call Now: 07848 254198</a>
     <a href="mailto:contact@fixdripgutters.co.uk">Email: contact@fixdripgutters.co.uk</a>
   </div>
 
@@ -85,7 +85,7 @@
       ">
 At Fix Drip Gutters, we’re passionate about delivering exceptional gutter and roofing services that protect your home and enhance its value. Our mission has always been simple: to provide quality, reliability, and outstanding customer service in everything we do.
 
-With a dedicated team of skilled roofing and gutter professionals, we bring years of experience, craftsmanship, and commitment to every project we take on. Whether you’re in need of roof repairs, gutter installation, maintenance, or inspection, we’re here to keep your home safe and secure.
+We bring years of experience, craftsmanship, and commitment to every project we take on. Whether you’re in need of roof repairs, gutter installation, maintenance, or inspection, we’re here to keep your home safe and secure.
 
 We don’t just aim to meet expectations — we strive to exceed them. Our values of integrity, attention to detail, and customer satisfaction guide how we work and how we serve our clients every day.
 
@@ -195,7 +195,7 @@ Let’s protect your home together.
       <div class="service-content">
         <h4>Residential & Commercial Gutter Clearing</h4>
         <p>
-          Keep your property protected with our expert gutter clearing services. Blocked gutters can lead to water damage, mold growth, and costly structural issues. Our team uses professional equipment to remove leaves, debris, and buildup—ensuring water flows freely and your home stays safe year-round. Regular maintenance can prevent long-term damage and give you peace of mind, rain or shine.
+          Keep your property protected with our expert gutter clearing services. Blocked gutters can lead to water damage, mold growth, and costly structural issues. We use professional equipment to remove leaves, debris, and buildup—ensuring water flows freely and your home stays safe year-round. Regular maintenance can prevent long-term damage and give you peace of mind, rain or shine.
         </p>
         <p style="color: #1c5986;"><b><i>What we offer?</i></b></p>
         <p>
@@ -209,7 +209,7 @@ Let’s protect your home together.
   <div class="service-content">
     <h4><b>Roof Repairs & Replacements</b></h4>
     <p>
-      Your roof is your home’s first line of defense. From storm damage to wear and tear, we provide fast, dependable roof repairs and full replacements for all types of roofing, including pitched and flat roofs. Whether you need missing tiles replaced or an entire roof overhaul, our skilled team delivers high-quality workmanship that stands the test of time.
+      Your roof is your home’s first line of defense. From storm damage to wear and tear, we provide fast, dependable roof repairs and full replacements for all types of roofing, including pitched and flat roofs. Whether you need missing tiles replaced or an entire roof overhaul, we deliver high-quality workmanship that stands the test of time.
     </p>
     <p style="color: #1c5986;"><b><i>What we offer?</i></b></p>
     <p>
@@ -303,22 +303,26 @@ Let’s protect your home together.
 </section>
 
   <!-- Service Area Section -->
-    <!-- Service Area Section -->
-  <section id="service-area" class="section">
-    <div class="container">
-      <b>
-        <h2 style="margin-bottom: 2.5rem; text-align: center;">Service Area</h2>
-      </b>
-      <p style="margin-bottom: 1rem;">We proudly serve various areas throughout Devon. Check the map below to see if we
-        cover your location.
-      </p>
-      <div style="width: 100%; height: 400px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91188.94832151145!2d-4.185!3d50.715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486c9d9c3ffb3cbb%3A0x4eac7f0b94dbeb29!2sDevon%2C%20UK!5e0!3m2!1sen!2suk!4v1716000000000"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+<!-- Service Area Section -->
+<!-- Service Area Section -->
+<section id="service-area" class="section">
+  <div class="container">
+    <b>
+      <h2 style="margin-bottom: 2.5rem; text-align: center;">Service Area</h2>
+    </b>
+    <p style="margin-bottom: 1rem;">We proudly serve various areas throughout Devon. Check the map below to see if we
+      cover your location.
+    </p>
+    <div style="width: 100%; height: 400px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d364000.0!2d-4.5!3d50.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.0!3m3!1m2!1s0x486c9d9c3ffb3cbb%3A0x4eac7f0b94dbeb29!2sDevon%2C%20UK!5e0!3m2!1sen!2suk!4v1716000000000"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
 
 
   <!-- Contact Section -->
@@ -689,7 +693,10 @@ document.getElementById("backToTopBtn").addEventListener("click", () => {
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     // Initialize the map
-    const map = L.map('map').setView([51.505, -0.09], 13); // Centered on London by default
+    const map = L.map('map').setView([50.715, -4.185], 8); // lower number = zoomed out
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+  }).addTo(map);
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
