@@ -52,6 +52,60 @@ html {
   animation: fadeSlideIn 0.8s ease-out 0.2s forwards;
 }
 
+.contact-info {
+  display: flex;
+  flex-direction: column; /* stack phone above email */
+  line-height: 1.4;
+}
+.nav {
+  display: flex;
+  justify-content: space-between; /* Links on left, contact-info on right */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: 0;          /* stick it to the bottom of nav */
+  left: 0;
+  height: 2px;
+  width: 0;
+  transition: left 0.3s, width 0.3s;
+}
+
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-info {
+    margin-top: 1rem;
+    align-items: center;
+  }
+}
+
+.contact-info a {
+  font-weight: bold;
+  color: #eaf8f8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
 .hero-content p {
   animation: fadeSlideIn 0.8s ease-out 0.5s forwards;
 }
@@ -173,11 +227,7 @@ html {
   transition: box-shadow 0.3s ease-in-out;
 
   }
-
-  .nav {
-    position: relative;
-
-  }/* Mobile (max-width: 768px) */
+/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .nav {
     display: flex; /* keep flex for transition */
